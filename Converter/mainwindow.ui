@@ -24,6 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
+<<<<<<< HEAD
      <number>0</number>
     </property>
     <widget class="QWidget" name="Length">
@@ -273,6 +274,24 @@
        </item>
       </layout>
      </widget>
+=======
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Сторінка</string>
+     </attribute>
+>>>>>>> 31d8b1c82cfd84eea7e36a7f39b40a0daf1e6544
     </widget>
    </widget>
   </widget>
