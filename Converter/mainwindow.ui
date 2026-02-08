@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="Length">
+       <attribute name="title">
+        <string>Length</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>237</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLineEdit" name="editTop_2"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboTopUnit_2">
+             <item>
+              <property name="text">
+               <string>meters (m)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>kilometers (km)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>inches (in)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>feet (ft)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>miles (mi)</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLineEdit" name="editBottom_2"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboTopUnit_5">
+             <item>
+              <property name="text">
+               <string>meters (m)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>kilometers (km)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>inches (in)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>feet (ft)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>miles (mi)</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnConvert_2">
+           <property name="text">
+            <string>Convert</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Mass">
+       <attribute name="title">
+        <string>Mass</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>237</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLineEdit" name="editTop_3"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboTopUnit_3">
+             <item>
+              <property name="text">
+               <string>kilograms (kg)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>pounds (lb)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>ounces (oz)</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLineEdit" name="editBottom_3"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboTopUnit_4">
+             <item>
+              <property name="text">
+               <string>kilograms (kg)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>pounds (lb)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>ounces (oz)</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnConvert_3">
+           <property name="text">
+            <string>Convert</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Temperature">
+       <attribute name="title">
+        <string>Temperature</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>237</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLineEdit" name="editTop"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboTopUnit">
+             <item>
+              <property name="text">
+               <string>Celsius (°C)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fahrenheit (°F)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Kelvin (K)</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLineEdit" name="editBottom"/>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBottomUnit">
+             <item>
+              <property name="text">
+               <string>Celsius (°C)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fahrenheit (°F)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Kelvin (K)</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnConvert">
+           <property name="text">
+            <string>Convert</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
