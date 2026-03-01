@@ -21,7 +21,7 @@ QString processor::getCurrentLine()
 
 QString processor::getPreviousLine()
 {
-    if(lineIndex == 0 || lines.isEmpty()) return "";
+    if(lineIndex == 0 || lines.isEmpty()) return "mmmm dddd WWWWW QQQQ";
     return lines[lineIndex - 1];
 }
 
