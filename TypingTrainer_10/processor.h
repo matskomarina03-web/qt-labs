@@ -16,6 +16,8 @@ public:
 
     QString getCurrentLine();
     QString getPreviousLine();
+
+    QVector<bool> errorFlags;
     void nextChar();
 
     void loadLesson(const QString &filePath);
