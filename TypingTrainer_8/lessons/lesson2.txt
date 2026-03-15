@@ -1,6 +1,0 @@
-1.7. QTextStream: читання тексту як QString\n
-Для читання/запису саме тексту поверх QFile зручно використовувати QTextStream:\n
-• прочитати весь файл: readAll()\n
-• записати рядок/текст: operator<<\n
-Приклад читання всього файла:\n
-QTextStream in(&f); QString text = in.readAll();
