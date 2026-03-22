@@ -3,18 +3,30 @@
 #include <QMessageBox>
 #include <QDate>
 #include <QItemSelectionModel>
-
+#include <QTableWidgetItem>
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent),m_repository("tickets.csv")
     , ui(new Ui::mainwindow)
 {
     ui->setupUi(this);
+
     model = new TicketTableModel(this);
-    model->addTicket({1, "Printer problem", "High", "Open", QDate::currentDate()});
-    model->addTicket({2, "Internet down", "Medium", "Open", QDate::currentDate()});
-    model->addTicket({3, "Computer slow", "Low", "Closed", QDate::currentDate()});
-    model->addTicket({4, "Keyboard broken", "Medium", "Open", QDate::currentDate()});
-    model->addTicket({5, "Software error", "High", "Open", QDate::currentDate()});
+
+    ui->tableTickets->setModel(model);
+    ui->tableTickets->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    QVector<Ticket> tickets = m_repository.loadTickets();
+    if(tickets.isEmpty()) {
+        model->addTicket({1, "Printer problem", "High", "Open", QDate::currentDate()});
+        model->addTicket({2, "Internet down", "Medium", "Open", QDate::currentDate()});
+        model->addTicket({3, "Computer slow", "Low", "Closed", QDate::currentDate()});
+        model->addTicket({4, "Keyboard broken", "Medium", "Open", QDate::currentDate()});
+        model->addTicket({5, "Software error", "High", "Open", QDate::currentDate()});
+        m_repository.saveTickets(model->getTickets());
+    } else {
+        for(auto &t : tickets)
+            model->addTicket(t);
+    }
     ui->tableTickets->setModel(model);
     ui->tableTickets->setSelectionBehavior(QAbstractItemView::SelectRows);
 
@@ -63,6 +75,7 @@ void MainWindow::onNewTicket()
         t.priority = data[4];
         model->addTicket(t);
     }
+    m_repository.saveTickets(model->getTickets());
 }
 
 void MainWindow::onViewTicket()
@@ -79,6 +92,7 @@ void MainWindow::onViewTicket()
     dialog.setMode(0);
     dialog.setTicketData({QString::number(t.id), t.title, "", t.status, t.priority, t.createdAt.toString("yyyy-MM-dd")});
     dialog.exec();
+    m_repository.saveTickets(model->getTickets());
 }
 
 void MainWindow::onEditTicket()
@@ -101,6 +115,7 @@ void MainWindow::onEditTicket()
         t.priority = data[4];
         model->updateTicket(row, t);
     }
+    m_repository.saveTickets(model->getTickets());
 }
 
 void MainWindow::onDeleteTicket()
@@ -121,6 +136,7 @@ void MainWindow::onDeleteTicket()
     {
         model->removeTicket(row);
     }
+    m_repository.saveTickets(model->getTickets());
 }
 
 void MainWindow::updateActions()
@@ -164,6 +180,19 @@ void MainWindow::clearFilter()
     {
         ui->tableTickets->setRowHidden(i, false);
     }
+}
+
+void MainWindow::addTicket(const QString &title, const QString &priority)
+{
+    Ticket t;
+    t.id = m_repository.nextId();
+    t.title = title;
+    t.priority = priority;
+    t.status = "Open";
+    t.createdAt = QDate::currentDate();
+
+    model->addTicket(t);
+    m_repository.saveTickets(model->getTickets());
 }
 
 MainWindow::~MainWindow()

@@ -74,3 +74,7 @@ Ticket TicketTableModel::getTicket(int row) const
     if(row < 0 || row >= tickets.size()) return Ticket();
     return tickets[row];
 }
+QVector<Ticket> TicketTableModel::getTickets() const
+{
+    return tickets;
+}

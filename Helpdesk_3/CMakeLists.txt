@@ -33,6 +33,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ticketdialog.ui
         ticket.h
         tickettablemodel.h tickettablemodel.cpp
+        csvticketrepository.h csvticketrepository.cpp
 
 
     )

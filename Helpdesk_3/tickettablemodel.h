@@ -21,6 +21,8 @@ public:
     void removeTicket(int row);
 
     Ticket getTicket(int row) const;
+    QVector<Ticket> ticketsList() const { return tickets; }
+    QVector<Ticket> getTickets() const;
 
 private:
     QVector<Ticket> tickets;
