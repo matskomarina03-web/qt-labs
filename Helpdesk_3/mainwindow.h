@@ -5,6 +5,7 @@
 #include "ticket.h"
 #include "tickettablemodel.h"
 #include "csvticketrepository.h"
+#include <QSortFilterProxyModel>
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -24,6 +25,7 @@ private slots:
 
     void filterTickets();
     void clearFilter();
+    void sortBySearch();
 
 
 private:
@@ -31,6 +33,7 @@ private:
     TicketTableModel *model;
     csvticketrepository m_repository;
     QList<Ticket> m_tickets;
+    QSortFilterProxyModel *proxyModel;
 };
 
 #endif // MAINWINDOW_H

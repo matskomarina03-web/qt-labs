@@ -4,6 +4,25 @@
 #include <QDate>
 #include <QItemSelectionModel>
 #include <QTableWidgetItem>
+
+class TicketSortProxy : public QSortFilterProxyModel
+{
+protected:
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override
+    {
+        QVariant leftData = sourceModel()->data(left);
+        QVariant rightData = sourceModel()->data(right);
+
+        if(left.column() == 0)
+            return leftData.toInt() < rightData.toInt();
+
+        if(left.column() == 4)
+            return QDate::fromString(leftData.toString(), "yyyy-MM-dd") <
+                   QDate::fromString(rightData.toString(), "yyyy-MM-dd");
+
+        return leftData.toString().toLower() < rightData.toString().toLower();
+    }
+};
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),m_repository("tickets.csv")
     , ui(new Ui::mainwindow)
@@ -54,6 +73,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->btnClear, &QPushButton::clicked,
             this, &MainWindow::clearFilter);
+    proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(model);
+    proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
+    ui->tableTickets->setModel(proxyModel);
+    ui->tableTickets->setSortingEnabled(true);
 }
 
 void MainWindow::onNewTicket()
@@ -115,7 +139,7 @@ void MainWindow::onEditTicket()
         t.priority = data[4];
         model->updateTicket(row, t);
     }
-    m_repository.saveTickets(model->getTickets());
+     m_repository.saveTickets(model->getTickets());
 }
 
 void MainWindow::onDeleteTicket()
@@ -136,7 +160,7 @@ void MainWindow::onDeleteTicket()
     {
         model->removeTicket(row);
     }
-    m_repository.saveTickets(model->getTickets());
+     m_repository.saveTickets(model->getTickets());
 }
 
 void MainWindow::updateActions()
@@ -192,7 +216,36 @@ void MainWindow::addTicket(const QString &title, const QString &priority)
     t.createdAt = QDate::currentDate();
 
     model->addTicket(t);
-    m_repository.saveTickets(model->getTickets());
+    m_repository.saveTickets(model->ticketsList());
+}
+
+void MainWindow::sortBySearch()
+{
+    QString text = ui->lineEdit->text().toLower();
+
+    if(text.isEmpty()) return;
+
+    QVector<Ticket> matched;
+    QVector<Ticket> others;
+
+    for(int i = 0; i < model->rowCount(); i++)
+    {
+        Ticket t = model->getTicket(i);
+
+        if(t.title.toLower().contains(text))
+            matched.push_back(t);
+        else
+            others.push_back(t);
+    }
+
+    while(model->rowCount() > 0)
+    {
+        model->removeTicket(0);
+    }
+
+    for(auto &t : matched)
+        model->addTicket(t);
+
 }
 
 MainWindow::~MainWindow()
