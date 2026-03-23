@@ -1,0 +1,25 @@
+# ninja log v5
+1	869	7959571922111001	PasswordManager_autogen/timestamp	309caf4a66cb56c5
+1	869	7959571922111001	PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+1	869	7959571922111001	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/timestamp	309caf4a66cb56c5
+1	869	7959571922111001	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+882	3721	7959571951443308	CMakeFiles/PasswordManager.dir/PasswordManager_autogen/mocs_compilation.cpp.obj	fa396cde886f2ea6
+879	3806	7959571952274299	CMakeFiles/PasswordManager.dir/main.cpp.obj	fd4a2cf0e48f5f59
+877	4519	7959571959439111	CMakeFiles/PasswordManager.dir/mainwindow.cpp.obj	c9f801931dce3bd4
+4519	4780	7959571961939042	PasswordManager.exe	e0963ebcd07b738b
+7	167	7959574900880653	PasswordManager_autogen/timestamp	309caf4a66cb56c5
+7	167	7959574900880653	PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+7	167	7959574900880653	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/timestamp	309caf4a66cb56c5
+7	167	7959574900880653	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+8	170	7959575478443793	PasswordManager_autogen/timestamp	309caf4a66cb56c5
+8	170	7959575478443793	PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+8	170	7959575478443793	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/timestamp	309caf4a66cb56c5
+8	170	7959575478443793	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+8	172	7959576306911930	PasswordManager_autogen/timestamp	309caf4a66cb56c5
+8	172	7959576306911930	PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+8	172	7959576306911930	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/timestamp	309caf4a66cb56c5
+8	172	7959576306911930	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+7	209	7959576731964369	PasswordManager_autogen/timestamp	309caf4a66cb56c5
+7	209	7959576731964369	PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5
+7	209	7959576731964369	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/timestamp	309caf4a66cb56c5
+7	209	7959576731964369	C:/Users/WinUse/Documents/PasswordManager/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/PasswordManager_autogen/mocs_compilation.cpp	309caf4a66cb56c5

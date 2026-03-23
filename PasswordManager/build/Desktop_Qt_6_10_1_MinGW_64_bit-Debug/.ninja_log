@@ -1,0 +1,22 @@
+# ninja log v6
+14	1777	7959976589145603	PasswordManager_autogen/timestamp	ce03a2c2d4dcd9f3
+14	1777	7959976589145603	PasswordManager_autogen/mocs_compilation.cpp	ce03a2c2d4dcd9f3
+14	1777	7959976589145603	C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/timestamp	ce03a2c2d4dcd9f3
+14	1777	7959976589145603	C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/mocs_compilation.cpp	ce03a2c2d4dcd9f3
+1790	4105	7959976590424681	CMakeFiles/PasswordManager.dir/PasswordManager_autogen/mocs_compilation.cpp.obj	7995b5f46e0b1d27
+1833	4167	7959976590822144	CMakeFiles/PasswordManager.dir/main.cpp.obj	9113dff7b05504dd
+1884	4712	7959976591291620	CMakeFiles/PasswordManager.dir/mainwindow.cpp.obj	b9a3708aedd9571b
+22	649	7959978994353902	PasswordManager_autogen/timestamp	ce03a2c2d4dcd9f3
+22	649	7959978994353902	PasswordManager_autogen/mocs_compilation.cpp	ce03a2c2d4dcd9f3
+22	649	7959978994353902	C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/timestamp	ce03a2c2d4dcd9f3
+22	649	7959978994353902	C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/mocs_compilation.cpp	ce03a2c2d4dcd9f3
+650	3910	7959979000638206	CMakeFiles/PasswordManager.dir/mainwindow.cpp.obj	b9a3708aedd9571b
+3910	5357	7959979033228838	PasswordManager.exe	5fc8dfae5e548a44
+18	1140	7959982579028568	PasswordManager_autogen/timestamp	ce03a2c2d4dcd9f3
+18	1140	7959982579028568	PasswordManager_autogen/mocs_compilation.cpp	ce03a2c2d4dcd9f3
+18	1140	7959982579028568	C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/timestamp	ce03a2c2d4dcd9f3
+18	1140	7959982579028568	C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/mocs_compilation.cpp	ce03a2c2d4dcd9f3
+1142	3907	7959982580140115	CMakeFiles/PasswordManager.dir/PasswordManager_autogen/mocs_compilation.cpp.obj	7995b5f46e0b1d27
+1341	4047	7959982582135535	CMakeFiles/PasswordManager.dir/main.cpp.obj	9113dff7b05504dd
+1393	4670	7959982582657393	CMakeFiles/PasswordManager.dir/mainwindow.cpp.obj	b9a3708aedd9571b
+4670	6143	7959982615432535	PasswordManager.exe	5fc8dfae5e548a44
