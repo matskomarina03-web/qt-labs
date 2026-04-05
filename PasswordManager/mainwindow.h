@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 #include <QStandardItemModel>
 #include <QMainWindow>
-
+#include <QSqlTableModel>
+#include "databasemanager.h"
+#include "passwordrepository.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -19,7 +21,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QStandardItemModel *model;
+    QSqlTableModel *model;
+    DatabaseManager dbManager;
+    PasswordRepository *repository;
 
 private slots:
     void onNewTriggered();

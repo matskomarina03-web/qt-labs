@@ -1,5 +1,6 @@
 C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/mainwindow.h \
   C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/moc_predefs.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h \
@@ -63,6 +64,7 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_
   C:/Qt/6.10.1/mingw_64/include/QtCore/qmargins.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qmath.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qmetacontainer.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qmetaobject.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qmetatype.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qminmax.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qnamespace.h \
@@ -156,6 +158,18 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_
   C:/Qt/6.10.1/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/QSqlDatabase \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/QSqlError \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/QSqlQuery \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/QSqlTableModel \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/qsqlerror.h \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/qsqlquery.h \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/qsqlquerymodel.h \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/qsqltablemodel.h \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/qtsql-config.h \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/qtsqlexports.h \
+  C:/Qt/6.10.1/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -376,4 +390,6 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sys/types.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
+  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/databasemanager.h \
+  C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/passwordrepository.h
