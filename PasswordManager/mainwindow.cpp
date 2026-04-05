@@ -7,19 +7,38 @@
 #include <QSqlTableModel>
 #include <QDebug>
 #include "databasemanager.h"
+#include <QDateTime>
+#include <QSortFilterProxyModel>
+#include "passwordrepository.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     dbManager.open();
     dbManager.init();
 
     QSqlDatabase db = dbManager.getDB();
-    repository = new PasswordRepository(db);
+    repo = new PasswordRepository(db);
+
     model = new QSqlTableModel(this, db);
     model->setTable("passwords");
+    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model->select();
+
+    proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(model);
+
+    ui->tableInfo->setModel(proxyModel);
+
+    connect(ui->searchline, &QLineEdit::textChanged,
+            this, [=](const QString &text)
+            {
+                proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+                proxyModel->setFilterKeyColumn(-1);
+                proxyModel->setFilterRegularExpression(text);
+            });
 
     connect(ui->actionExit_2, &QAction::triggered, this, &QWidget::close);
     ui->tableInfo->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -34,8 +53,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionEdit, &QAction::triggered, this, &MainWindow::onEditTriggered);
     connect(ui->actionDelete, &QAction::triggered, this, &MainWindow::onDeleteTriggered);
     connect(ui->actionSave, &QAction::triggered, this, &MainWindow::onSaveTriggered);
+    ui->tableInfo->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    ui->tableInfo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     model->setHeaderData(0, Qt::Horizontal, "ID");
     model->setHeaderData(1, Qt::Horizontal, "Title");
     model->setHeaderData(2, Qt::Horizontal, "Username");
@@ -43,7 +62,11 @@ MainWindow::MainWindow(QWidget *parent)
     model->setHeaderData(4, Qt::Horizontal, "Website");
     model->setHeaderData(5, Qt::Horizontal, "Category");
     model->setHeaderData(6, Qt::Horizontal, "UpdatedAt");
-    ui->tableInfo->setModel(model);
+    connect(ui->ClearBtn, &QPushButton::clicked,
+            this, [=]()
+            {
+                ui->searchline->setText("");
+            });
 }
 
 void MainWindow::onEditTriggered()
@@ -59,8 +82,9 @@ void MainWindow::onDeleteTriggered()
     QModelIndex current = ui->tableInfo->currentIndex();
     if (!current.isValid()) return;
 
-    int row = current.row();
-    int id = model->data(model->index(row, 0)).toInt();
+    QModelIndex sourceIndex = proxyModel->mapToSource(current);
+
+    int id = model->data(model->index(sourceIndex.row(), 0)).toInt();
 
     auto answer = QMessageBox::question(
         this,
@@ -71,15 +95,25 @@ void MainWindow::onDeleteTriggered()
 
     if (answer == QMessageBox::Yes)
     {
-        repository->remove(id);
-        model->select();
+        if (repo->remove(id)) {
+            QMessageBox::information(this, "OK", "Deleted");
+            model->select();
+        } else {
+            QMessageBox::warning(this, "Error", "Delete failed");
+        }
     }
 }
 void MainWindow::onNewTriggered()
 {
     int row = model->rowCount();
+
     model->insertRow(row);
-    ui->tableInfo->selectRow(row);
+
+    QModelIndex index = model->index(row, 1);
+    proxyModel->invalidate();
+
+    ui->tableInfo->setCurrentIndex(proxyModel->mapFromSource(index));
+    ui->tableInfo->edit(ui->tableInfo->currentIndex());
 }
 
 void MainWindow::onSaveTriggered()

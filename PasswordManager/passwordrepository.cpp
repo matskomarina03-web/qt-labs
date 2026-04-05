@@ -2,7 +2,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
-
+#include <QList>
 PasswordRepository::PasswordRepository(const QSqlDatabase &database)
     : db(database)
 {
@@ -16,3 +16,4 @@ bool PasswordRepository::remove(int id)
 
     return query.exec();
 }
+

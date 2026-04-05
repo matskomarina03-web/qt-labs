@@ -1,7 +1,6 @@
 #ifndef PASSWORDREPOSITORY_H
 #define PASSWORDREPOSITORY_H
 #include <QSqlDatabase>
-#pragma once
 
 class PasswordRepository {
 public:

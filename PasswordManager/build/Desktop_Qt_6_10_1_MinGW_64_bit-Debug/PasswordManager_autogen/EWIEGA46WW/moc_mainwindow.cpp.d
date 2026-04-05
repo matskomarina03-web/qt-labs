@@ -1,6 +1,7 @@
 C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/mainwindow.h \
   C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/PasswordManager_autogen/moc_predefs.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QDebug \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QSortFilterProxyModel \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h \
@@ -10,6 +11,7 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_
   C:/Qt/6.10.1/mingw_64/include/QtCore/q23type_traits.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q23utility.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qabstractproxymodel.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qalloc.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qanystringview.h \
@@ -79,6 +81,7 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_
   C:/Qt/6.10.1/mingw_64/include/QtCore/qprocessordetection.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qrect.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qrefcount.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qregularexpression.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qscopedpointer.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qscopeguard.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qset.h \
@@ -87,6 +90,7 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/build/Desktop_Qt_6_10_
   C:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qsize.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qsortfilterproxymodel.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qspan.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qstdlibdetection.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qstring.h \

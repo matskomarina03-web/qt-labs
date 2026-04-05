@@ -2,6 +2,7 @@
 C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/QDebug
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/QSortFilterProxyModel
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h
@@ -11,6 +12,7 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/mainwindow.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/q23type_traits.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/q23utility.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qabstractitemmodel.h
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qabstractproxymodel.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qalgorithms.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qalloc.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qanystringview.h
@@ -80,6 +82,7 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/mainwindow.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qprocessordetection.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qrect.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qrefcount.h
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qregularexpression.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qscopedpointer.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qscopeguard.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qset.h
@@ -88,6 +91,7 @@ C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/mainwindow.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer_impl.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qsize.h
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qsortfilterproxymodel.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qspan.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qstdlibdetection.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qstring.h

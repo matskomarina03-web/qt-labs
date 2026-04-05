@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QSqlTableModel>
 #include "databasemanager.h"
+#include <QSortFilterProxyModel>
 #include "passwordrepository.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,7 +24,8 @@ private:
     Ui::MainWindow *ui;
     QSqlTableModel *model;
     DatabaseManager dbManager;
-    PasswordRepository *repository;
+    QSortFilterProxyModel *proxyModel;
+    PasswordRepository *repo;
 
 private slots:
     void onNewTriggered();
