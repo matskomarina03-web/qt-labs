@@ -43,6 +43,7 @@ public:
     QGridLayout *gridLayout;
     QPushButton *ClearBtn;
     QLineEdit *searchline;
+    QPushButton *IndividualButton;
     QTableView *tableInfo;
     QMenuBar *menubar;
     QMenu *menuFile;
@@ -112,6 +113,11 @@ public:
 
         gridLayout->addWidget(searchline, 0, 0, 1, 1);
 
+        IndividualButton = new QPushButton(centralwidget);
+        IndividualButton->setObjectName("IndividualButton");
+
+        gridLayout->addWidget(IndividualButton, 0, 2, 1, 1);
+
 
         verticalLayout->addLayout(gridLayout);
 
@@ -123,7 +129,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 800, 26));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName("menuFile");
         menuEntry = new QMenu(menubar);
@@ -182,6 +188,7 @@ public:
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         actionExit_2->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
         ClearBtn->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
+        IndividualButton->setText(QCoreApplication::translate("MainWindow", "individual", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuEntry->setTitle(QCoreApplication::translate("MainWindow", "Entry", nullptr));
         menuTools->setTitle(QCoreApplication::translate("MainWindow", "Tools", nullptr));

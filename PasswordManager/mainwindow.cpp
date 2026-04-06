@@ -10,6 +10,7 @@
 #include <QDateTime>
 #include <QSortFilterProxyModel>
 #include "passwordrepository.h"
+#include "passwordchecker.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -67,6 +68,8 @@ MainWindow::MainWindow(QWidget *parent)
             {
                 ui->searchline->setText("");
             });
+    connect(ui->IndividualButton, &QPushButton::clicked,
+            this, &MainWindow::PasswordVerification);
 }
 
 void MainWindow::onEditTriggered()
@@ -127,6 +130,41 @@ void MainWindow::onSaveTriggered()
     {
         QMessageBox::warning(this, "Error", model->lastError().text());
     }
+}
+
+
+void MainWindow::PasswordVerification()
+{
+    QModelIndex current = ui->tableInfo->currentIndex();
+    if (!current.isValid()) return;
+
+    QModelIndex sourceIndex = proxyModel->mapToSource(current);
+
+    QString password = model->data(model->index(sourceIndex.row(), 3)).toString();
+
+    PasswordChecker *checker = new PasswordChecker(this);
+
+    connect(checker, &PasswordChecker::checkFinished, this,
+            [=](bool found, int count)
+            {
+                if (found)
+                {
+                    QMessageBox::warning(this, "Warning",
+                                         "Пароль знайдено у витоках! Кількість: " + QString::number(count));
+                }
+                else
+                {
+                    QMessageBox::information(this, "Норма", "Пароль безпечний");
+                }
+            });
+
+    connect(checker, &PasswordChecker::checkError, this,
+            [=](const QString &err)
+            {
+                QMessageBox::warning(this, "Error", err);
+            });
+
+    checker->check(password);
 }
 MainWindow::~MainWindow()
 {

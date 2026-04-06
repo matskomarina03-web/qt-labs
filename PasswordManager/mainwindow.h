@@ -32,5 +32,6 @@ private slots:
     void onEditTriggered();
     void onDeleteTriggered();
     void onSaveTriggered();
+    void PasswordVerification();
 };
 #endif // MAINWINDOW_H
