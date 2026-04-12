@@ -404,9 +404,21 @@
 			null
 		],
 		[
+			"C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/passworditem.h",
+			"MU",
+			"EWIEGA46WW/moc_passworditem.cpp",
+			null
+		],
+		[
 			"C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/passwordrepository.h",
 			"MU",
 			"EWIEGA46WW/moc_passwordrepository.cpp",
+			null
+		],
+		[
+			"C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/passwordtablemodel.h",
+			"MU",
+			"EWIEGA46WW/moc_passwordtablemodel.cpp",
 			null
 		]
 	],
@@ -507,6 +519,11 @@
 		],
 		[
 			"C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/passwordrepository.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Lenovo/Downloads/PasswordManager/PasswordManager/passwordtablemodel.cpp",
 			"MU",
 			null
 		]

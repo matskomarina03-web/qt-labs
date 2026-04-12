@@ -18,6 +18,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableView>
@@ -41,9 +42,11 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
-    QPushButton *ClearBtn;
     QLineEdit *searchline;
+    QPushButton *ClearBtn;
+    QPushButton *AllPasswordsBtn;
     QPushButton *IndividualButton;
+    QProgressBar *progressBar;
     QTableView *tableInfo;
     QMenuBar *menubar;
     QMenu *menuFile;
@@ -103,20 +106,31 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
-        ClearBtn = new QPushButton(centralwidget);
-        ClearBtn->setObjectName("ClearBtn");
-
-        gridLayout->addWidget(ClearBtn, 0, 1, 1, 1);
-
         searchline = new QLineEdit(centralwidget);
         searchline->setObjectName("searchline");
 
         gridLayout->addWidget(searchline, 0, 0, 1, 1);
 
+        ClearBtn = new QPushButton(centralwidget);
+        ClearBtn->setObjectName("ClearBtn");
+
+        gridLayout->addWidget(ClearBtn, 0, 1, 1, 1);
+
+        AllPasswordsBtn = new QPushButton(centralwidget);
+        AllPasswordsBtn->setObjectName("AllPasswordsBtn");
+
+        gridLayout->addWidget(AllPasswordsBtn, 0, 3, 1, 1);
+
         IndividualButton = new QPushButton(centralwidget);
         IndividualButton->setObjectName("IndividualButton");
 
         gridLayout->addWidget(IndividualButton, 0, 2, 1, 1);
+
+        progressBar = new QProgressBar(centralwidget);
+        progressBar->setObjectName("progressBar");
+        progressBar->setValue(0);
+
+        gridLayout->addWidget(progressBar, 0, 4, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -188,6 +202,7 @@ public:
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         actionExit_2->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
         ClearBtn->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
+        AllPasswordsBtn->setText(QCoreApplication::translate("MainWindow", "Check All Passwords", nullptr));
         IndividualButton->setText(QCoreApplication::translate("MainWindow", "individual", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuEntry->setTitle(QCoreApplication::translate("MainWindow", "Entry", nullptr));

@@ -26,6 +26,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         databasemanager.h databasemanager.cpp
         passwordrepository.h passwordrepository.cpp
         passwordchecker.h passwordchecker.cpp
+        passworditem.h
+        passwordtablemodel.h passwordtablemodel.cpp
 
 
     )

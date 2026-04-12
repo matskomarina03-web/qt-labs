@@ -11,6 +11,7 @@
 #include <QSortFilterProxyModel>
 #include "passwordrepository.h"
 #include "passwordchecker.h"
+#include <QAbstractTableModel>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -23,10 +24,9 @@ MainWindow::MainWindow(QWidget *parent)
     QSqlDatabase db = dbManager.getDB();
     repo = new PasswordRepository(db);
 
-    model = new QSqlTableModel(this, db);
-    model->setTable("passwords");
-    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    model->select();
+    model = new PasswordTableModel(this);
+    model->setRepository(repo);
+    model->setItems(repo->getAll());
 
     proxyModel = new QSortFilterProxyModel(this);
     proxyModel->setSourceModel(model);
@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
             this, [=](const QString &text)
             {
                 proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
-                proxyModel->setFilterKeyColumn(-1);
+                proxyModel->setFilterKeyColumn(0);
                 proxyModel->setFilterRegularExpression(text);
             });
 
@@ -56,13 +56,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionSave, &QAction::triggered, this, &MainWindow::onSaveTriggered);
     ui->tableInfo->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    model->setHeaderData(0, Qt::Horizontal, "ID");
-    model->setHeaderData(1, Qt::Horizontal, "Title");
-    model->setHeaderData(2, Qt::Horizontal, "Username");
-    model->setHeaderData(3, Qt::Horizontal, "Password");
-    model->setHeaderData(4, Qt::Horizontal, "Website");
-    model->setHeaderData(5, Qt::Horizontal, "Category");
-    model->setHeaderData(6, Qt::Horizontal, "UpdatedAt");
     connect(ui->ClearBtn, &QPushButton::clicked,
             this, [=]()
             {
@@ -70,6 +63,14 @@ MainWindow::MainWindow(QWidget *parent)
             });
     connect(ui->IndividualButton, &QPushButton::clicked,
             this, &MainWindow::PasswordVerification);
+    ui->tableInfo->setSortingEnabled(true);
+    proxyModel->setDynamicSortFilter(true);
+    proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
+    ui->progressBar->setValue(0);   // старт
+    ui->progressBar->setValue(50);  // середина
+    ui->progressBar->setValue(100); // кінець
+    connect(ui->AllPasswordsBtn, &QPushButton::clicked,
+            this, &MainWindow::onCheckAll);
 }
 
 void MainWindow::onEditTriggered()
@@ -87,7 +88,7 @@ void MainWindow::onDeleteTriggered()
 
     QModelIndex sourceIndex = proxyModel->mapToSource(current);
 
-    int id = model->data(model->index(sourceIndex.row(), 0)).toInt();
+    int id = model->getItem(sourceIndex.row()).id;
 
     auto answer = QMessageBox::question(
         this,
@@ -99,37 +100,41 @@ void MainWindow::onDeleteTriggered()
     if (answer == QMessageBox::Yes)
     {
         if (repo->remove(id)) {
-            QMessageBox::information(this, "OK", "Deleted");
-            model->select();
+            QMessageBox::information(this, "OK", "Видалено");
+            model->setItems(repo->getAll());
         } else {
-            QMessageBox::warning(this, "Error", "Delete failed");
+            QMessageBox::warning(this, "Error", "Видалити не вдалося");
         }
     }
 }
 void MainWindow::onNewTriggered()
 {
-    int row = model->rowCount();
 
-    model->insertRow(row);
 
-    QModelIndex index = model->index(row, 1);
+    PasswordItem item;
+
+    repo->add(item);
+    model->setItems(repo->getAll());
+
+    int row = model->rowCount(QModelIndex()) - 1;
+    QModelIndex index = model->index(row, 0);
+
     proxyModel->invalidate();
 
     ui->tableInfo->setCurrentIndex(proxyModel->mapFromSource(index));
     ui->tableInfo->edit(ui->tableInfo->currentIndex());
+    if (item.title.isEmpty() ||
+        item.username.isEmpty() ||
+        item.password.isEmpty())
+    {
+        QMessageBox::warning(this, "Error", "Заповніть всі поля");
+        return;
+    }
 }
 
 void MainWindow::onSaveTriggered()
 {
-    if (model->submitAll())
-    {
-        QMessageBox::information(this, "Save", "Saved!");
-        model->select();
-    }
-    else
-    {
-        QMessageBox::warning(this, "Error", model->lastError().text());
-    }
+    QMessageBox::information(this, "Save", "Збережено автоматично");
 }
 
 
@@ -138,9 +143,13 @@ void MainWindow::PasswordVerification()
     QModelIndex current = ui->tableInfo->currentIndex();
     if (!current.isValid()) return;
 
+
     QModelIndex sourceIndex = proxyModel->mapToSource(current);
 
-    QString password = model->data(model->index(sourceIndex.row(), 3)).toString();
+    QString password = model->data(
+                                model->index(sourceIndex.row(), 3),
+                                Qt::DisplayRole
+                                ).toString();
 
     PasswordChecker *checker = new PasswordChecker(this);
 
@@ -166,8 +175,70 @@ void MainWindow::PasswordVerification()
 
     checker->check(password);
 }
+
+void MainWindow::onCheckAll()
+{
+    QList<PasswordItem> items = model->getItems();
+
+    totalChecks = 0;
+    finishedChecks = 0;
+    safeCount = 0;
+    leakedCount = 0;
+
+    for (const auto &item : items)
+        if (!item.password.isEmpty())
+            totalChecks++;
+
+    ui->progressBar->setValue(0);
+
+    for (const auto &item : items)
+    {
+        if (item.password.isEmpty())
+            continue;
+
+        auto *checker = new PasswordChecker(this);
+
+        connect(checker, &PasswordChecker::checkFinished,
+                this, [=](bool found, int count)
+                {
+                    finishedChecks++;
+
+                    if (found)
+                        leakedCount++;
+                    else
+                        safeCount++;
+
+                    int percent = (finishedChecks * 100) / totalChecks;
+                    ui->progressBar->setValue(percent);
+
+                    if (finishedChecks == totalChecks)
+                    {
+                        QMessageBox::information(this, "Done",
+                                                 "Готово!\nБезпечний: " + QString::number(safeCount) +
+                                                     "\nВитік: " + QString::number(leakedCount));
+                    }
+
+                    checker->deleteLater();
+                });
+
+        connect(checker, &PasswordChecker::checkError,
+                this, [=](const QString &err)
+                {
+                    finishedChecks++;
+
+                    int percent = (finishedChecks * 100) / totalChecks;
+                    ui->progressBar->setValue(percent);
+
+                    checker->deleteLater();
+                });
+
+        checker->check(item.password);
+    }
+}
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 

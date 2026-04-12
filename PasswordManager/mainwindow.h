@@ -6,6 +6,8 @@
 #include "databasemanager.h"
 #include <QSortFilterProxyModel>
 #include "passwordrepository.h"
+#include "passwordtablemodel.h"
+#include <QFutureWatcher>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -22,10 +24,17 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QSqlTableModel *model;
+    PasswordTableModel *model;
     DatabaseManager dbManager;
     QSortFilterProxyModel *proxyModel;
     PasswordRepository *repo;
+    QFutureWatcher<void> *watcher;
+
+    int totalChecks = 0;
+    int finishedChecks = 0;
+    int safeCount = 0;
+    int leakedCount = 0;
+
 
 private slots:
     void onNewTriggered();
@@ -33,5 +42,6 @@ private slots:
     void onDeleteTriggered();
     void onSaveTriggered();
     void PasswordVerification();
+    void onCheckAll();
 };
 #endif // MAINWINDOW_H
