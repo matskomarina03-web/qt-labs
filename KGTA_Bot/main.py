@@ -3,6 +3,9 @@ import telebot
 from telebot import types
 import sqlite3
 import json
+
+import os
+token = os.getenv("TOKEN")
 bot = telebot.TeleBot(token)
 ADMIN_ID = 5268765168
 @bot.message_handler(commands=['id'])
@@ -18,10 +21,12 @@ def start(message):
     btn4 = types.KeyboardButton("Документи для вступу")
     btn5 = types.KeyboardButton("Контакти")
     btn6 = types.KeyboardButton("Подати заявку")
+    btn7 = types.KeyboardButton("Питання до приймальної комісії")
 
     markup.add(btn1, btn2)
     markup.add(btn3, btn4)
     markup.add(btn5, btn6)
+    markup.add(btn7)
 
     bot.send_message(
         message.chat.id,
@@ -718,10 +723,12 @@ def menu(message):
         btn4 = types.KeyboardButton("Документи для вступу")
         btn5 = types.KeyboardButton("Контакти")
         btn6 = types.KeyboardButton("Подати заявку")
+        btn7 = types.KeyboardButton("Питання до приймальної комісії")
 
         markup.add(btn1, btn2)
         markup.add(btn3, btn4)
         markup.add(btn5, btn6)
+        markup.add(btn7)
 
         bot.send_message(
             message.chat.id,
@@ -731,6 +738,10 @@ def menu(message):
     elif message.text == "Подати заявку":
         msg = bot.send_message(message.chat.id, "Введіть ваше ПІБ:")
         bot.register_next_step_handler(msg, get_name)
+    
+    elif message.text == "Питання до приймальної комісії":
+        msg = bot.send_message(message.chat.id, "Введіть ваше ПІБ:")
+        bot.register_next_step_handler(msg, get_question_name)
 user_data = {}
 
 
@@ -842,4 +853,72 @@ def get_phone(message):
 
     msg = bot.send_message(message.chat.id, "Після якого класу вступаєте?")
     bot.register_next_step_handler(msg, get_class)
+
+
+
+
+
+
+
+
+def get_question_phone(message):
+    phone = message.text.strip()
+
+    if not phone.startswith("+380") or len(phone) != 13 or not phone[1:].isdigit():
+        msg = bot.send_message(message.chat.id, "Введіть номер у форматі +380XXXXXXXXX")
+        bot.register_next_step_handler(msg, get_question_phone)
+        return
+
+    user_data[message.chat.id]["phone"] = phone
+
+    msg = bot.send_message(message.chat.id, "Напишіть ваше питання:")
+    bot.register_next_step_handler(msg, get_question_text)
+
+
+def get_question_name(message):
+    user_data[message.chat.id] = {"name": message.text}
+
+    msg = bot.send_message(message.chat.id, "Введіть ваш номер телефону:")
+    bot.register_next_step_handler(msg, get_question_phone)
+
+def get_question_name(message):
+    user_data[message.chat.id] = {"name": message.text}
+
+    msg = bot.send_message(message.chat.id, "Введіть ваш номер телефону:")
+    bot.register_next_step_handler(msg, get_question_phone)
+
+def save_question_to_json(data):
+    try:
+        with open("questions.json", "r", encoding="utf-8") as file:
+            questions = json.load(file)
+    except FileNotFoundError:
+        questions = []
+
+    questions.append(data)
+
+    with open("questions.json", "w", encoding="utf-8") as file:
+        json.dump(questions, file, ensure_ascii=False, indent=4)
+
+def get_question_text(message):
+    user_data[message.chat.id]["question"] = message.text
+
+    data = user_data[message.chat.id]
+    save_question_to_json(data)
+    bot.send_message(
+        ADMIN_ID,
+        f"Нове питання до приймальної комісії:\n\n"
+        f"ПІБ: {data['name']}\n"
+        f"Телефон: {data['phone']}\n"
+        f"Питання: {data['question']}"
+    )
+
+    bot.send_message(
+        message.chat.id,
+        "Дякуємо! Ваше питання збережено та надіслано приймальній комісії."
+    )
+
+    del user_data[message.chat.id]
+
+
+
 bot.polling()
