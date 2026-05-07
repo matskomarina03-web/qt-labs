@@ -1,4 +1,3 @@
-from tok import token
 import telebot
 from telebot import types
 import sqlite3
