@@ -4,8 +4,25 @@ import sqlite3
 import json
 
 import os
-token = os.getenv("TOKEN")
+
+from flask import Flask
+import threading
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running"
+
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, use_reloader=False)
+
+threading.Thread(target=run_web, daemon=True).start()
+token = "8622209004:AAHt43rMBrTfpYPUF05dZskBwR6yu6zxBpY"
 bot = telebot.TeleBot(token)
+
+
 ADMIN_ID = 5268765168
 @bot.message_handler(commands=['id'])
 def get_id(message):
@@ -21,11 +38,12 @@ def start(message):
     btn5 = types.KeyboardButton("Контакти")
     btn6 = types.KeyboardButton("Подати заявку")
     btn7 = types.KeyboardButton("Питання до приймальної комісії")
+    btn8 = types.KeyboardButton("⬅ Назад")
 
     markup.add(btn1, btn2)
     markup.add(btn3, btn4)
     markup.add(btn5, btn6)
-    markup.add(btn7)
+    markup.add(btn7, btn8)
 
     bot.send_message(
         message.chat.id,
@@ -723,11 +741,12 @@ def menu(message):
         btn5 = types.KeyboardButton("Контакти")
         btn6 = types.KeyboardButton("Подати заявку")
         btn7 = types.KeyboardButton("Питання до приймальної комісії")
+        btn8 = types.KeyboardButton("⬅ Назад")
 
         markup.add(btn1, btn2)
         markup.add(btn3, btn4)
         markup.add(btn5, btn6)
-        markup.add(btn7)
+        markup.add(btn7, btn8)
 
         bot.send_message(
             message.chat.id,
@@ -743,9 +762,14 @@ def menu(message):
         bot.register_next_step_handler(msg, get_question_name)
 user_data = {}
 
-
+def cancel_process(message):
+    user_data.pop(message.chat.id, None)
+    start(message)
 
 def get_name(message):
+    if message.text == "⬅ Назад":
+       cancel_process(message)
+       return
     user_data[message.chat.id] = {"name": message.text}
 
     msg = bot.send_message(message.chat.id, "Введіть номер телефону:")
@@ -753,6 +777,9 @@ def get_name(message):
 
 
 def get_class(message):
+    if message.text == "⬅ Назад":
+       cancel_process(message)
+       return
     user_data[message.chat.id]["class"] = message.text
 
     msg = bot.send_message(message.chat.id, "Яка спеціальність вас цікавить?")
@@ -838,6 +865,9 @@ def get_speciality(message):
 
 
 def get_phone(message):
+    if message.text == "⬅ Назад":
+       cancel_process(message)
+       return
     phone = message.text.strip()
 
     if not phone.startswith("+380") or len(phone) != 13 or not phone[1:].isdigit():
@@ -861,6 +891,9 @@ def get_phone(message):
 
 
 def get_question_phone(message):
+    if message.text == "⬅ Назад":
+        cancel_process(message)
+        return
     phone = message.text.strip()
 
     if not phone.startswith("+380") or len(phone) != 13 or not phone[1:].isdigit():
@@ -875,16 +908,14 @@ def get_question_phone(message):
 
 
 def get_question_name(message):
+    if message.text == "⬅ Назад":
+       cancel_process(message)
+       return
     user_data[message.chat.id] = {"name": message.text}
 
     msg = bot.send_message(message.chat.id, "Введіть ваш номер телефону:")
     bot.register_next_step_handler(msg, get_question_phone)
 
-def get_question_name(message):
-    user_data[message.chat.id] = {"name": message.text}
-
-    msg = bot.send_message(message.chat.id, "Введіть ваш номер телефону:")
-    bot.register_next_step_handler(msg, get_question_phone)
 
 def save_question_to_json(data):
     try:
@@ -919,5 +950,4 @@ def get_question_text(message):
     del user_data[message.chat.id]
 
 
-
-bot.polling()
+bot.infinity_polling(skip_pending=True)
