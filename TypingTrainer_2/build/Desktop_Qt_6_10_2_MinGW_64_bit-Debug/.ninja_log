@@ -1,0 +1,21 @@
+# ninja log v6
+7	668	7930233034165466	TypingTrainer_autogen/timestamp	cb92f3764c9f9148
+7	668	7930233034165466	TypingTrainer_autogen/mocs_compilation.cpp	cb92f3764c9f9148
+7	668	7930233034165466	C:/Users/STEM_4/Downloads/qt-labs-main/qt-labs-main/TypingTrainer_1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/TypingTrainer_autogen/timestamp	cb92f3764c9f9148
+7	668	7930233034165466	C:/Users/STEM_4/Downloads/qt-labs-main/qt-labs-main/TypingTrainer_1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/TypingTrainer_autogen/mocs_compilation.cpp	cb92f3764c9f9148
+677	3077	7930233034798217	CMakeFiles/TypingTrainer.dir/main.cpp.obj	60d8b1301ddd7b16
+674	3173	7930233034787881	CMakeFiles/TypingTrainer.dir/TypingTrainer_autogen/mocs_compilation.cpp.obj	f86ed3e256375d2
+681	3695	7930233034861469	CMakeFiles/TypingTrainer.dir/mainwindow.cpp.obj	d0dddb533e5699e1
+3695	3978	7930233065002437	TypingTrainer.exe	ec0aa080b2453550
+28	192	7930244542424980	TypingTrainer_autogen/timestamp	cb92f3764c9f9148
+28	192	7930244542424980	TypingTrainer_autogen/mocs_compilation.cpp	cb92f3764c9f9148
+28	192	7930244542424980	C:/Users/STEM_4/Downloads/qt-labs-main/qt-labs-main/TypingTrainer_1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/TypingTrainer_autogen/timestamp	cb92f3764c9f9148
+28	192	7930244542424980	C:/Users/STEM_4/Downloads/qt-labs-main/qt-labs-main/TypingTrainer_1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/TypingTrainer_autogen/mocs_compilation.cpp	cb92f3764c9f9148
+193	3691	7930244544068334	CMakeFiles/TypingTrainer.dir/mainwindow.cpp.obj	d0dddb533e5699e1
+3691	4258	7930244579052480	TypingTrainer.exe	ec0aa080b2453550
+10	198	7930259252261917	TypingTrainer_autogen/timestamp	cb92f3764c9f9148
+10	198	7930259252261917	TypingTrainer_autogen/mocs_compilation.cpp	cb92f3764c9f9148
+10	198	7930259252261917	C:/Users/STEM_4/Downloads/qt-labs-main/qt-labs-main/TypingTrainer_1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/TypingTrainer_autogen/timestamp	cb92f3764c9f9148
+10	198	7930259252261917	C:/Users/STEM_4/Downloads/qt-labs-main/qt-labs-main/TypingTrainer_1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/TypingTrainer_autogen/mocs_compilation.cpp	cb92f3764c9f9148
+199	2645	7930259254144784	CMakeFiles/TypingTrainer.dir/mainwindow.cpp.obj	d0dddb533e5699e1
+2646	2876	7930259278618252	TypingTrainer.exe	ec0aa080b2453550

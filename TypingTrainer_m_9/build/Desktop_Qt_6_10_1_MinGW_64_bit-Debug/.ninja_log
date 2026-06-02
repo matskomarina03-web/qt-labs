@@ -1,0 +1,24 @@
+# ninja log v6
+18	456	7940959427155518	TypingTrainer_autogen/timestamp	b7819a3ccda91b36
+18	456	7940959427155518	C:/Users/Lenovo/Downloads/TypingTrainer_10/TypingTrainer_10/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/TypingTrainer_autogen/mocs_compilation.cpp	b7819a3ccda91b36
+18	456	7940959427155518	TypingTrainer_autogen/mocs_compilation.cpp	b7819a3ccda91b36
+458	4091	7940959431554053	CMakeFiles/TypingTrainer.dir/mainwindow.cpp.obj	6df5a12c3f955d73
+18	456	7940959427155518	C:/Users/Lenovo/Downloads/TypingTrainer_10/TypingTrainer_10/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/TypingTrainer_autogen/timestamp	b7819a3ccda91b36
+1223	4204	7940954003575453	CMakeFiles/TypingTrainer.dir/TypingTrainer_autogen/mocs_compilation.cpp.obj	fdba6939bffcdff0
+1402	4309	7940954005363016	CMakeFiles/TypingTrainer.dir/main.cpp.obj	9eb6e0e60428b9af
+596	3204	7940937905242701	CMakeFiles/TypingTrainer.dir/processor.cpp.obj	8ccc69b6544c186d
+4091	5588	7940959467895112	TypingTrainer.exe	ec52390df0878cee
+19	470	7940961327912252	TypingTrainer_autogen/timestamp	b7819a3ccda91b36
+19	470	7940961327912252	TypingTrainer_autogen/mocs_compilation.cpp	b7819a3ccda91b36
+19	470	7940961327912252	C:/Users/Lenovo/Downloads/TypingTrainer_10/TypingTrainer_10/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/TypingTrainer_autogen/timestamp	b7819a3ccda91b36
+19	470	7940961327912252	C:/Users/Lenovo/Downloads/TypingTrainer_10/TypingTrainer_10/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/TypingTrainer_autogen/mocs_compilation.cpp	b7819a3ccda91b36
+471	4135	7940961332443023	CMakeFiles/TypingTrainer.dir/mainwindow.cpp.obj	6df5a12c3f955d73
+4135	5640	7940961369081821	TypingTrainer.exe	ec52390df0878cee
+17	1052	7940964303785187	TypingTrainer_autogen/timestamp	b7819a3ccda91b36
+17	1052	7940964303785187	TypingTrainer_autogen/mocs_compilation.cpp	b7819a3ccda91b36
+17	1052	7940964303785187	C:/Users/Lenovo/Downloads/TypingTrainer_10/TypingTrainer_10/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/TypingTrainer_autogen/timestamp	b7819a3ccda91b36
+17	1052	7940964303785187	C:/Users/Lenovo/Downloads/TypingTrainer_10/TypingTrainer_10/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/TypingTrainer_autogen/mocs_compilation.cpp	b7819a3ccda91b36
+1054	3696	7940964304746921	CMakeFiles/TypingTrainer.dir/TypingTrainer_autogen/mocs_compilation.cpp.obj	fdba6939bffcdff0
+1227	3736	7940964306488512	CMakeFiles/TypingTrainer.dir/main.cpp.obj	9eb6e0e60428b9af
+1278	4743	7940964306994483	CMakeFiles/TypingTrainer.dir/mainwindow.cpp.obj	6df5a12c3f955d73
+4743	6208	7940964341648664	TypingTrainer.exe	ec52390df0878cee

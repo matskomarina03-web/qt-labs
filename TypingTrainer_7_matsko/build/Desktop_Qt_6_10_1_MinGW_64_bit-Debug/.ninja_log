@@ -1,0 +1,10 @@
+# ninja log v6
+9	2161	7952705981755367	TypingTrainer_autogen/timestamp	e4c55e56fcef3840
+9	2161	7952705981755367	TypingTrainer_autogen/mocs_compilation.cpp	e4c55e56fcef3840
+9	2161	7952705981755367	C:/Users/Lenovo/Documents/qt-labs/TypingTrainer_7_matsko/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/TypingTrainer_autogen/timestamp	e4c55e56fcef3840
+9	2161	7952705981755367	C:/Users/Lenovo/Documents/qt-labs/TypingTrainer_7_matsko/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/TypingTrainer_autogen/mocs_compilation.cpp	e4c55e56fcef3840
+2307	3840	7952705984319988	CMakeFiles/TypingTrainer.dir/processor.cpp.obj	9183731bf7b1fe9b
+2168	4345	7952705982929162	CMakeFiles/TypingTrainer.dir/TypingTrainer_autogen/mocs_compilation.cpp.obj	ad5cb76dd30e1d60
+2212	4392	7952705983372797	CMakeFiles/TypingTrainer.dir/main.cpp.obj	5756c8d023a40804
+2263	5118	7952705983881100	CMakeFiles/TypingTrainer.dir/mainwindow.cpp.obj	b97d1da72199dafd
+5119	7384	7952706012440803	TypingTrainer.exe	ec52390df0878cee

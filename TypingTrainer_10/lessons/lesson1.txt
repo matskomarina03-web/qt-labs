@@ -1,0 +1,8 @@
+1.6. QFile: відкриття файла та режими доступу\n
+QFile — базовий клас для роботи з файлом за шляхом. Для текстових файлів найчастіше потрібні
+режими:\n
+• читання: QIODevice::ReadOnly | QIODevice::Text\n
+• запис: QIODevice::WriteOnly | QIODevice::Text\n
+Важливо: open() може не вдатися, тому результат потрібно перевіряти. Причину можна взяти з\n
+errorString().\n
+QFile f(path); if (!f.open(QIODevice::ReadOnly | QIODevice::Text)) return;
